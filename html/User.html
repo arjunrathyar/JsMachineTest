@@ -15,6 +15,13 @@
     <link rel="stylesheet" href="/css/User.css">
 
     <script src="/js/User.js"></script>
+
+    <script>
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
+    </script>
 </head>
 
 <body>
@@ -24,7 +31,7 @@
         <div>
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
                 <div class="container-fluid">
-    
+
                     <div class="me-auto">
                     </div>
                     <div class="mx-auto">
@@ -33,7 +40,7 @@
                     <div class="ms-auto">
                         <button id="logOutbtn" class="btn-primary" style="max-width: 100%;">Log out</button>
                     </div>
-    
+
                 </div>
             </nav>
         </div>
