@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/Admin.css">
+
+    <script src="/js/Admin.js"></script>
+</head>
+
+<body>
+
+    <div>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+
+                <div class="me-auto">
+                </div>
+                <div class="mx-auto">
+                    <h1 style="color: aliceblue;">TRAVEL REQUESTOR</h1>
+                </div>
+                <div class="ms-auto">
+                    <button id="logOutbtn" class="btn-primary" style="max-width: 100%;">Log out</button>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+
+    <div style="margin-top: 5%;">
+        <nav class="navbar navbar-light bg-light">
+            <form class="form-inline">
+                <button class="btn btn-outline-success" id="pendingBtn" type="button"
+                    style="height: 40px;">Pending</button>
+                &nbsp;
+                <button class="btn btn-outline-success" id="allBtn" type="button" style="height: 40px;">All</button>
+                &nbsp;
+                <button class="btn btn-outline-success" id="approvedBtn" type="button"
+                    style="height: 40px;">Approved</button>
+                &nbsp;
+                <button class="btn btn-outline-success" id="rejectedBtn" type="button"
+                    style="height: 40px;">Rejected</button>
+                &nbsp;
+                <button class="btn btn-outline-success" id="onHoldBtn" type="button"
+                    style="height: 40px;">Onhold</button>
+            </form>
+        </nav>
+    </div>
+
+
+    <div class="container" id="PendingTable" style="display: block; margin-top: 8%;">
+        <table class="table">
+            <tr>
+                <th>Employee Name</th>
+                <th>Destination</th>
+                <th>Priority</th>
+                <th>View Details</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>Donald</td>
+                <td>Delhi</td>
+                <td>Critical</td>
+                <td><a href="">View more</a></td>
+                <td><select id="action">
+                        <option value="approvalVal">Approve</option>
+                        <option value="rejectVal">Reject</option>
+                        <option value="holdVal">Hold</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Franco</td>
+                <td>Kochi</td>
+                <td>Normal</td>
+                <td><a href="">View more</a></td>
+                <td><select id="action">
+                        <option value="approvalVal">Approve</option>
+                        <option value="rejectVal">Reject</option>
+                        <option value="holdVal">Hold</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+
+
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/User.css">
+
+    <script src="/js/User.js"></script>
+</head>
+
+<body>
+    <div>
+
+
+        <div>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                <div class="container-fluid">
+    
+                    <div class="me-auto">
+                    </div>
+                    <div class="mx-auto">
+                        <h1 style="color: aliceblue;">TRAVEL REQUESTOR</h1>
+                    </div>
+                    <div class="ms-auto">
+                        <button id="logOutbtn" class="btn-primary" style="max-width: 100%;">Log out</button>
+                    </div>
+    
+                </div>
+            </nav>
+        </div>
+
+
+        <div style="margin-top: 2%;">
+            <nav class="navbar navbar-light bg-light">
+                <form class="form-inline">
+                    <button class="btn btn-outline-success" id="formBtn" type="button"
+                        style="height: 40px;">Form</button>
+                    &nbsp;
+                    <select id="request" class="btn btn-outline-success" style="height: 40px">
+                        <option value="viewRequest" id="basicReqs" selected>--View Request--</option>
+                        <option value="approved" id="approvedReqs">Approved</option>
+                        <option value="pending" id="pendingReqs">Pending</option>
+                        <option value="rejected" id="rejectedReqs">Rejected</option>
+                    </select>
+                </form>
+            </nav>
+        </div>
+
+        <!-- Travel Requestor Form -->
+
+        <div>
+            <br>
+            <form id="form" style="display: none">
+                <div class="text-center">
+                    <h3>
+                        TRAVEL REQUEST FORM
+                    </h3>
+                </div>
+                <br>
+                <div class="container">
+                    <div class="flex-container display: inline-block">
+                        <div class="flex-child">
+                            <label for="empId">Emp Id</label>
+                            <input type="text" id="empId" placeholder="Employee ID" style="width: 70%;">
+                        </div>
+                        <div class="flex-child">
+                            <label for="empName">Emp Name</label>
+                            <input type="text" id="empName" placeholder="Employee Name" style="width: 70%;">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="flex-container">
+                        <div class="flex-child">
+                            <label for="project">Project</label>
+                            <input type="text" id="empProj" placeholder="Project" style="width: 70%;">
+                        </div>
+                        <div class="flex-child">
+                            <label for="travelCause">Cause for travel</label>
+                            <input type="text" id="cause" placeholder="Cause" style="width: 64%;">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="flex-container">
+                        <div class="flex-child">
+                            <label for="source">Source</label>
+                            <input type="text" id="source" placeholder="Source" style="width: 70%;">
+                        </div>
+                        <div class="flex-child">
+                            <label for="destination">Destination</label>
+                            &nbsp;
+                            <input type="text" id="dest" placeholder="Destination" style="width: 68%;">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="flex-container">
+                        <div class="flex-child">
+                            <label for="fromDate">From Date</label>
+                            <input type="date" id="fromDate" name="fromDate">
+                        </div>
+                        <div class="flex-child">
+                            <label for="toDate">To Date</label>
+                            <input type="date" id="toDate" name="toDate">
+                        </div>
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        <div class="flex-child">
+                            <label for="noOfDays">No of Days</label>
+                            <input type="number" id="noOfDays" name="noOfDays" disabled>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="flex-container">
+                        <div class="flex-child">
+                            <label for="modeOfTravel">Mode Of Travel</label>
+                            <input type="text" id="mode" placeholder="Mode Of Travel" style="width: 59%;">
+                        </div>
+                        <div class="flex-child">
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button id="sbmtBtn" type="submit">
+                            Send
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <span class="text-center">
+                <p id="idError"></p>
+            </span>
+            <span class="text-center">
+                <p id="nameError"></p>
+            </span>
+            <span class="text-center">
+                <p id="projError"></p>
+            </span>
+            <span class="text-center">
+                <p id="causeError"></p>
+            </span>
+            <span class="text-center">
+                <p id="srcError"></p>
+            </span>
+            <span class="text-center">
+                <p id="destError"></p>
+            </span>
+            <span class="text-center">
+                <p id="froError"></p>
+            </span>
+            <span class="text-center">
+                <p id="toError"></p>
+            </span>
+            <span class="text-center">
+                <p id="modeError"></p>
+            </span>
+        </div>
+
+
+        <!-- View Requests -->
+
+        <div class="container" id="approvedTable" style="display: none;">
+            <table class="table">
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Destination</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Donald</td>
+                    <td>Delhi</td>
+                    <td>Critical</td>
+                    <td id="emplDetails">View more</td>
+                </tr>
+                <tr>
+                    <td>Franco</td>
+                    <td>Kochi</td>
+                    <td>Normal</td>
+                    <td><a href="">View more</a></td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div class="container" id="rejectedTable" style="display: none;">
+            <table class="table">
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Destination</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Soman</td>
+                    <td>Delhi</td>
+                    <td>Critical</td>
+                    <td><a href="">View more</a></td>
+                </tr>
+                <tr>
+                    <td>Dicruz</td>
+                    <td>Chalakkudy</td>
+                    <td>Critical</td>
+                    <td><a href="">View more</a></td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div class="container" id="pendingTable" style="display: none;">
+            <table class="table">
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Destination</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Sambu</td>
+                    <td>Goa</td>
+                    <td>Normal</td>
+                    <td><a href="">View more</a></td>
+                </tr>
+                <tr>
+                    <td>Bale</td>
+                    <td>Madrid</td>
+                    <td>Critical</td>
+                    <td><a href="">View more</a></td>
+                </tr>
+            </table>
+        </div>
+
+
+        <!--View-->
+
+        <div style="text-align: center;">
+            <div style="display: inline-block; text-align: left;">
+                <span id="travelDetails"></span>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
